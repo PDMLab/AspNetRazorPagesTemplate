@@ -13,7 +13,7 @@ It contains
 
 ### Create a new Repository
 
-* Create a new Repository from this Template as described [here](TODO).
+* Create a new Repository from this Template as described [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 * Clone your new repository locally
 
 ### Run the solution
