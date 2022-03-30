@@ -51,3 +51,23 @@ Browse https://localhost:5001
 
 * Not tested on Windows
 * JetBrains Rider code completion does not work for TailwindCSS 3 JIT mode in `.cshtml` files [currently](https://youtrack.jetbrains.com/issue/RIDER-58725).
+
+## Renaming solution / project / folders
+
+Of course, you want to rename the projects files to match our needs.
+
+You can use these commands, e.g. `AspNetCoreRazorPages`  gets renamed to `MyApp`:
+
+### Rename all references inside the files
+
+```bash
+LC_ALL=C find . -type f -name '*.*' -not \( -path './node_modules/*' -o -path './src/AspNetCoreRazorPages/node_modules/*' -o -path './assets' \) -exec sed -i '' 's|AspNetCoreRazorPages|MyApp|g' {} \;
+```
+
+### Rename files and folders
+
+```bash
+find . -depth -name "*AspNetCoreRazorPages*" | \
+while IFS= read -r ent; do mv $ent ${ent%AspNetCoreRazorPages*}MyApp${ent##*AspNetCoreRazorPages}; done
+
+```
